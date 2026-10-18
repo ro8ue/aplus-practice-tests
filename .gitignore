@@ -3,3 +3,5 @@ shot-*.png
 .env*
 __pycache__/
 archive/
+reddit-post-*.md
+compliance-proposal.md
