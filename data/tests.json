@@ -1,5 +1,5 @@
 {
- "site": {"name": "A+ Practice Test Ranker", "base_url": "https://ro8ue.github.io/voucherwatch-aplus", "updated": "2026-10-18"},
+ "site": {"name": "A+ Practice Test Ranker", "base_url": "https://ro8ue.github.io/aplus-practice-tests", "updated": "2026-10-18"},
  "tests": [
   {"slug": "dion-udemy", "name": "Dion Training 6 Practice Exams (Udemy)", "maker": "Jason Dion / Dion Training", "price": "Varies on Udemy (frequent sales); not recorded", "free": false,
    "questions": "540 per exam (6 x 90): 1201 and 1202 sold separately", "pbqs": "No. Udemy description says multiple-choice. Separate PBQ Practice Pack (50 PBQ-style, $29.99 for Core 1) at diontraining.com",

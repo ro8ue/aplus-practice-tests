@@ -1,8 +1,8 @@
 # A+ Practice Test Ranker (formerly VoucherWatch A+): state 18 Oct 2026 (SAST)
 
 ## Live
-- URL: https://ro8ue.github.io/voucherwatch-aplus/ (GitHub Pages, main branch root)
-- Repo: https://github.com/ro8ue/voucherwatch-aplus (public)
+- URL: https://ro8ue.github.io/aplus-practice-tests/ (GitHub Pages, main branch root) (repo renamed from voucherwatch-aplus on 18 Oct)
+- Repo: https://github.com/ro8ue/aplus-practice-tests (public)
 - Pivot approved 18 Oct after r/CompTIA removed the voucher post. All voucher seller tables have been removed. The site only points to CompTIA and Pearson VUE for vouchers, with a safety note. Old voucher URLs (220-1201.html, 220-1202.html, outside-us.html, how-we-check.html) redirect to home with noindex. The old voucher data is archived locally in archive/ and is not in the repo.
 - Pages: index (comparison + best-for picks), one page per test (dion-udemy, professor-messer, certmaster-practice, examcompass, crucial-exams, burningicetech, tia-ramdayal), practice-vs-real-scores (9 cited data points; "submit your scores: coming soon"), methodology (method + disclosure).
 - Data: data/tests.json. To update: edit, run `python3 build.py`, commit, push. Facts checked 2026-10-18.
