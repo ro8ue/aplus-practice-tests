@@ -25,3 +25,16 @@
 4. Weekly routine: re-check prices and question counts, add new pass-post data points, send the weekly email.
 5. Reddit: a data-first post with no link (see report).
 6. Affiliate applications (Udemy via Impact, CompTIA) later; update the disclosure first.
+
+## SEO guide pages (added 18 Oct 2026). Content lives in guides.py and tables come from data/tests.json
+| Page | Target query (from Google autocomplete) |
+|---|---|
+| dion-vs-messer-a-plus-practice-tests.html | dion vs messer / dion vs professor messer |
+| is-certmaster-practice-worth-it.html | is certmaster practice worth it |
+| best-free-a-plus-practice-tests.html | free comptia a+ practice test / comptia a+ 1201 practice test free |
+| what-practice-test-score-to-pass-a-plus.html | what score do you need to pass comptia a+ (practice-score angle) |
+| a-plus-pbq-practice.html | a+ pbq practice / a+ pbq questions |
+| a-plus-1201-vs-1101.html | a+ 1201 vs 1101 |
+| a-plus-passing-score-and-exam-format.html | a+ 1201 passing score / a+ passing score |
+Each guide has an answer-first intro, a comparison table, sources, an FAQ, Article + FAQPage JSON-LD, a last-updated date, related links and the score form CTA. All are linked from home and listed in the sitemap.
+Google's sitemap ping endpoint was retired in 2023, so we rely on the sitemap submitted in Search Console. Optionally use URL Inspection, then "Request indexing", for the new pages.

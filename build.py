@@ -11,10 +11,10 @@ th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #e6ebf0;vertical
 .pick{background:#e8f7ef;border-radius:12px;padding:14px 16px}.pick b{display:block;color:#0a8f5a;font-size:13px;text-transform:uppercase;letter-spacing:.03em}
 blockquote{margin:8px 0;padding:6px 12px;border-left:3px solid #0a8f5a;background:#f3f7f5}.btn{display:inline-block;background:#0a8f5a;color:#fff;font-weight:700;text-decoration:none;padding:12px 20px;border-radius:8px;margin:6px 0}.muted{color:#5b6a78;font-size:14px}
 footer{color:#5b6a78;font-size:14px;border-top:1px solid #dde3e9;margin-top:30px}@media(max-width:640px){nav a{margin:0 12px 0 0}th,td{padding:8px}}"""
-def page(fn, title, desc, body):
+def page(fn, title, desc, body, head=''):
     canon = S['base_url'] + "/" + ("" if fn == "index.html" else fn)
     (R/fn).write_text(f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{e(title)}</title><meta name="description" content="{e(desc)}"><link rel="canonical" href="{canon}"><link rel="stylesheet" href="style.css"></head><body>
+<title>{e(title)}</title><meta name="description" content="{e(desc)}"><link rel="canonical" href="{canon}"><link rel="stylesheet" href="style.css">{head}</head><body>
 <header><a class="logo" href="index.html">A+ Practice Test <span>Ranker</span></a><nav><a href="index.html">Compare</a><a href="practice-vs-real-scores.html">Practice vs real scores</a><a href="methodology.html">Methodology</a></nav></header>
 <main>{body}</main><footer><p>Independent, not affiliated with CompTIA or any test maker. No affiliate links. Facts last checked {S['updated']}. <a href="methodology.html">Methodology &amp; disclosure</a>.</p></footer></body></html>""")
 signup = """<div class=box><h2 style="margin-top:0">Get the weekly A+ study email</h2><p class=muted>One short email a week: practice test updates, new practice-vs-real score reports, and study tips for 220-1201/1202.</p>
@@ -24,10 +24,28 @@ safe = "<div class=callout><b>Buying a voucher?</b> Only buy CompTIA vouchers fr
 free = lambda t: "Free" if t["free"] is True else ("Free tier + paid" if t["free"] == "freemium" else "Paid")
 rows = "".join(f"<tr><td><a href='{t['slug']}.html'>{e(t['name'])}</a></td><td>{free(t)}<br><span class=muted>{e(t['price'])}</span></td><td>{e(t['questions'])}</td><td>{e(t['pbqs'])}</td><td>{e(t['covers'])}</td><td>{e(t['difficulty'])}</td></tr>" for t in T)
 picks = "".join(f"<div class=pick><b>{lab}</b><a href='{s}.html'>{e(next(t['name'] for t in T if t['slug']==s))}</a></div>" for lab, s in [("Best full-length timed drilling","dion-udemy"),("Best official question style","certmaster-practice"),("Best for finding weak areas","crucial-exams"),("Best free walkthroughs","burningicetech"),("Best free quick quizzes","examcompass"),("Cheapest paid start","professor-messer")])
+
+import guides
+GS = guides.G
+def ld(obj): return '<script type="application/ld+json">'+json.dumps(obj)+'</script>'
+for g in GS:
+    tmap = {t["slug"]: t for t in T}
+    trs = "".join(f"<tr><td><a href='{t['slug']}.html'>{e(t['name'])}</a></td><td>{free(t)}<br><span class=muted>{e(t['price'])}</span></td><td>{e(t['questions'])}</td><td>{e(t['pbqs'])}</td><td>{e(t['difficulty'])}</td></tr>" for t in (tmap[x] for x in g["tests"]))
+    faq = "".join(f"<h3>{e(q)}</h3><p>{e(a)}</p>" for q, a in g["faq"])
+    src = "".join(f"<li><a href='{e(u)}' rel='nofollow noopener'>{e(l)}</a></li>" for l, u in g["sources"])
+    rel = " · ".join(f"<a href='{o['slug']}.html'>{e(o['h1'])}</a>" for o in GS if o is not g)
+    url = S['base_url'] + "/" + g["slug"] + ".html"
+    schema = ld({"@context":"https://schema.org","@graph":[{"@type":"Article","headline":g["title"],"description":g["desc"],"dateModified":S["updated"],"datePublished":S["updated"],"mainEntityOfPage":url,"author":{"@type":"Organization","name":"A+ Practice Test Ranker"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in g["faq"]]}]})
+    page(g["slug"]+".html", g["title"]+" | A+ Practice Test Ranker", g["desc"],
+      f"<h1>{e(g['h1'])}</h1><p class=muted>Last updated {S['updated']}</p><p class=lead>{e(g['answer'])}</p>"
+      f"<div class=tw><table><thead><tr><th>Practice test</th><th>Cost</th><th>Questions</th><th>PBQs</th><th>Vs real exam</th></tr></thead><tbody>{trs}</tbody></table></div>"
+      f"{g['body']}<p>Passed or sat A+? <a class=btn href='{guides.F}' rel='noopener'>Share your practice vs real scores</a></p>"
+      f"<h2>FAQ</h2>{faq}<h2>Sources</h2><ul class=muted>{src}</ul><p class=muted>Related: {rel} · <a href='practice-vs-real-scores.html'>Practice vs real scores</a> · <a href='index.html'>Full comparison</a></p>{signup}", head=schema)
+guide_links = "".join(f"<li><a href='{g['slug']}.html'>{e(g['h1'])}</a></li>" for g in GS)
 page("index.html", "Best CompTIA A+ Practice Tests Compared (220-1201 & 220-1202) | A+ Practice Test Ranker",
  "Compare CompTIA A+ 220-1201 and 220-1202 practice tests: Dion, Professor Messer, CertMaster, Crucial Exams, ExamCompass, BurningIceTech. Price, questions, PBQs and real-exam difficulty from pass posts.",
  f"<h1>CompTIA A+ practice tests, compared</h1><p class=lead>Price, question count, PBQs and how hard each one is compared with the real 220-1201/1202 exam, based on what people who passed actually said.</p>"
- f"<h2>Best for</h2><div class=grid>{picks}</div><h2>Comparison</h2><div class=tw><table><thead><tr><th>Practice test</th><th>Cost</th><th>Questions</th><th>PBQs</th><th>Covers</th><th>Vs real exam (pass posts)</th></tr></thead><tbody>{rows}</tbody></table></div>"
+ f"<h2>Best for</h2><div class=grid>{picks}</div><h2>Guides</h2><ul>{guide_links}</ul><h2>Comparison</h2><div class=tw><table><thead><tr><th>Practice test</th><th>Cost</th><th>Questions</th><th>PBQs</th><th>Covers</th><th>Vs real exam (pass posts)</th></tr></thead><tbody>{rows}</tbody></table></div>"
  f"<p class=muted>Note: the real A+ exams have up to 90 questions in 90 minutes. Passing is 675 (Core 1) and 700 (Core 2) on a 100-900 scale (<a href='https://www.comptia.org/en-us/certifications/a/core-1-and-2-v15/'>CompTIA</a>). See <a href='practice-vs-real-scores.html'>practice vs real scores</a>.</p><p>Passed A+? <a href='https://forms.gle/YCW25CpBCStuHMK29' rel='noopener'>Share your practice vs real scores</a> (anonymous, 2 minutes).</p>{signup}{safe}")
 for t in T:
     links = " · ".join(f"<a href='{e(u)}' rel='nofollow noopener'>{e(l)}</a>" for l, u in t["links"])
@@ -55,7 +73,7 @@ page("methodology.html", "Methodology & Disclosure | A+ Practice Test Ranker", "
 for old in ["220-1201.html","220-1202.html","outside-us.html","how-we-check.html"]:
     (R/old).write_text('<!doctype html><meta charset="utf-8"><title>Moved</title><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url=index.html"><link rel="canonical" href="'+S['base_url']+'/"><p>Moved: <a href="index.html">A+ Practice Test Ranker</a></p>')
 (R/"style.css").write_text(CSS)
-pages = ["index.html","practice-vs-real-scores.html","methodology.html"] + [t["slug"]+".html" for t in T]
+pages = ["index.html","practice-vs-real-scores.html","methodology.html"] + [t["slug"]+".html" for t in T] + [g["slug"]+".html" for g in GS]
 (R/"sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{S['base_url']}/{'' if p=='index.html' else p}</loc><lastmod>{S['updated']}</lastmod></url>\n" for p in pages) + "</urlset>\n")
 (R/"robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {S['base_url']}/sitemap.xml\n")
 print("built", pages)
