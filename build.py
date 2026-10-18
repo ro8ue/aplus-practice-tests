@@ -27,9 +27,8 @@ best = offers[0]; std = min((o for o in offers if "early" not in o["type"]), key
 callout = f"""<div class=callout><div>Cheapest right now (one exam):</div><b class=big>${best['price_usd']:.2f}</b> at <b>{e(best['seller'])}</b>, {e(best['type'])}, {e(best['expiry'].lower())}. List price is ${S['list_price_usd']}.
 <div class=muted>Need more time? The cheapest longer-dated voucher is ${std['price_usd']:.2f} at {e(std['seller'])} ({e(std['expiry'].lower())}). Checked {best['checked']}.</div></div>"""
 signup = """<div class=box><h2 style="margin-top:0">Get the weekly A+ voucher price email</h2><p class=muted>One short email a week: the cheapest A+ vouchers, new sales, and expiry traps. No spam.</p>
-<!-- TODO: connect a newsletter provider (not chosen yet). The form posts nowhere for now. -->
-<form action="#" method="post" onsubmit="alert('Signup not live yet (TODO).');return false"><input type="email" name="email" placeholder="you@example.com" required aria-label="Email"><button type="submit">Subscribe</button></form>
-<p class=todo>TODO: newsletter provider not connected yet. This form doesn't save anything.</p></div>"""
+<script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="15c91c67-f932-4b17-b631-62f1e5d4e75b"></script>
+<p class=muted><a href="https://voucherwatch.beehiiv.com/subscribe" rel="noopener">Or subscribe here</a></p></div>"""
 unv = "".join(f"<li>{e(u['seller'])}: {e(u['reason'])}</li>" for u in D["unverified"])
 page("index.html", "CompTIA A+ Voucher Prices Compared (220-1201 & 220-1202) | VoucherWatch A+",
  f"Compare discounted CompTIA A+ exam voucher prices from authorized sellers. Cheapest today: ${best['price_usd']:.2f} vs ${S['list_price_usd']} list. Updated weekly.",
@@ -52,7 +51,7 @@ page("how-we-check.html", "How We Check A+ Voucher Prices & Disclosure | Voucher
  "How VoucherWatch A+ checks CompTIA A+ voucher prices every week, and our affiliate disclosure.",
  f"""<h1>How we check prices</h1><div class=box><ol><li>At least once a week we open every seller's public A+ voucher page and record the price shown, the voucher type, the expiry, retake terms and region limits, plus the date we checked.</li>
 <li>We only list prices we saw ourselves on that date. If a page won't load or the price isn't clear, we leave the seller out and say so.</li><li>Anything a seller doesn't state is marked "not listed".</li><li>Prices can change at any time. The seller's checkout price is the real one.</li></ol></div>
-<h2>Disclosure</h2><div class=box><p>VoucherWatch A+ is independent and not affiliated with or endorsed by CompTIA or any seller listed. <b>Right now all seller links are plain links. We don't earn anything from them.</b></p>
+<h2>Newsletter</h2><div class=box><p>Our weekly price email runs on <a href="https://voucherwatch.beehiiv.com/" rel="noopener">Beehiiv</a>. If you subscribe, Beehiiv handles your email address under its own privacy policy. You can unsubscribe from any email.</p></div>\n<h2>Disclosure</h2><div class=box><p>VoucherWatch A+ is independent and not affiliated with or endorsed by CompTIA or any seller listed. <b>Right now all seller links are plain links. We don't earn anything from them.</b></p>
 <p class=todo>TODO (placeholder): if we join affiliate programs later, this section will name them, and we'll label affiliate links. Our ranking will always be by price, never by commission.</p></div>""")
 (R/"style.css").write_text(CSS)
 pages = ["index.html","220-1201.html","220-1202.html","outside-us.html","how-we-check.html"]
