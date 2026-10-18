@@ -2,3 +2,4 @@ shot-*.png
 *.log
 .env*
 __pycache__/
+archive/
