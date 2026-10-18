@@ -6,7 +6,7 @@
 - Pivot approved 18 Oct after r/CompTIA removed the voucher post. All voucher seller tables have been removed. The site only points to CompTIA and Pearson VUE for vouchers, with a safety note. Old voucher URLs (220-1201.html, 220-1202.html, outside-us.html, how-we-check.html) redirect to home with noindex. The old voucher data is archived locally in archive/ and is not in the repo.
 - Pages: index (comparison + best-for picks), one page per test (dion-udemy, professor-messer, certmaster-practice, examcompass, crucial-exams, burningicetech, tia-ramdayal), practice-vs-real-scores (9 cited data points; "submit your scores: coming soon"), methodology (method + disclosure).
 - Data: data/tests.json. To update: edit, run `python3 build.py`, commit, push. Facts checked 2026-10-18.
-- Newsletter: Beehiiv, publication VoucherWatch A+ (https://voucherwatch.beehiiv.com/), form id 15c91c67-f932-4b17-b631-62f1e5d4e75b, on every content page. The site copy now says "weekly A+ study email". The Beehiiv form's own tagline still reads "cheapest CompTIA A+ exam vouchers"; change it in Beehiiv.
+- Newsletter: Beehiiv, publication VoucherWatch A+ (https://aplus-practice-tests.beehiiv.com/), form id 15c91c67-f932-4b17-b631-62f1e5d4e75b, on every content page. The site copy now says "weekly A+ study email". The Beehiiv form's own tagline still reads "cheapest CompTIA A+ exam vouchers"; change it in Beehiiv.
 - No affiliate links, no tracking scripts.
 
 ## Unverified / gaps

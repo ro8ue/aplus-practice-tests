@@ -19,7 +19,7 @@ def page(fn, title, desc, body):
 <main>{body}</main><footer><p>Independent, not affiliated with CompTIA or any test maker. No affiliate links. Facts last checked {S['updated']}. <a href="methodology.html">Methodology &amp; disclosure</a>.</p></footer></body></html>""")
 signup = """<div class=box><h2 style="margin-top:0">Get the weekly A+ study email</h2><p class=muted>One short email a week: practice test updates, new practice-vs-real score reports, and study tips for 220-1201/1202.</p>
 <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="15c91c67-f932-4b17-b631-62f1e5d4e75b"></script>
-<p class=muted><a href="https://voucherwatch.beehiiv.com/subscribe" rel="noopener">Or subscribe here</a></p></div>"""
+<p class=muted><a href="https://aplus-practice-tests.beehiiv.com/subscribe" rel="noopener">Or subscribe here</a></p></div>"""
 safe = "<div class=callout><b>Buying a voucher?</b> Only buy CompTIA vouchers from CompTIA, Pearson VUE, or a CompTIA Authorized Partner. Vouchers can't be resold, and codes from unauthorized sellers can be refused or put your certification at risk. Official: <a href='https://www.comptia.org/en-us/certifications/a/core-1-and-2-v15/'>CompTIA A+</a> · <a href='https://home.pearsonvue.com/comptia'>Pearson VUE</a>.</div>"
 free = lambda t: "Free" if t["free"] is True else ("Free tier + paid" if t["free"] == "freemium" else "Paid")
 rows = "".join(f"<tr><td><a href='{t['slug']}.html'>{e(t['name'])}</a></td><td>{free(t)}<br><span class=muted>{e(t['price'])}</span></td><td>{e(t['questions'])}</td><td>{e(t['pbqs'])}</td><td>{e(t['covers'])}</td><td>{e(t['difficulty'])}</td></tr>" for t in T)
@@ -51,7 +51,7 @@ page("methodology.html", "Methodology & Disclosure | A+ Practice Test Ranker", "
 <li><b>Difficulty</b> summaries come only from public Reddit posts by test takers. We quote briefly and link every source. Opinions vary, and we show the dissenting ones too.</li><li><b>Practice vs real scores</b> are self-reported data points from public pass posts, each linked. We don't invent or estimate numbers.</li>
 <li>"Best for" picks are our editorial judgment from the above. They aren't paid.</li><li>Facts last checked: {S['updated']}. We plan to re-check weekly.</li></ul></div>
 <h2>Disclosure</h2><div class=box><p>Independent, and not affiliated with CompTIA or any test maker. <b>No affiliate links right now.</b> If that changes, we'll say so here and label the links, and the picks won't depend on commissions.</p>
-<p>Our weekly email runs on <a href="https://voucherwatch.beehiiv.com/">Beehiiv</a>, which handles subscriber emails under its own privacy policy.</p><p>We used to compare voucher prices. We stopped, and now only point to official purchase channels.</p></div>{safe}""")
+<p>Our weekly email runs on <a href="https://aplus-practice-tests.beehiiv.com/">Beehiiv</a>, which handles subscriber emails under its own privacy policy.</p><p>We used to compare voucher prices. We stopped, and now only point to official purchase channels.</p></div>{safe}""")
 for old in ["220-1201.html","220-1202.html","outside-us.html","how-we-check.html"]:
     (R/old).write_text('<!doctype html><meta charset="utf-8"><title>Moved</title><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url=index.html"><link rel="canonical" href="'+S['base_url']+'/"><p>Moved: <a href="index.html">A+ Practice Test Ranker</a></p>')
 (R/"style.css").write_text(CSS)
