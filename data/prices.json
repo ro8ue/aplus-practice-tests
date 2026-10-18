@@ -1,0 +1,19 @@
+{
+  "site": {"name": "VoucherWatch A+", "base_url": "https://ro8ue.github.io/voucherwatch-aplus", "list_price_usd": 274, "updated": "2026-10-17"},
+  "us_offers": [
+    {"seller": "SuperVoucher", "url": "https://www.supervoucher.com/comptia/comptia_a_plus_exam_voucher.asp", "price_usd": 189.95, "type": "Pearson VUE voucher, early expiry", "expiry": "Expires 2026-11-30", "retake": "No (Retake Assurance sold separately; price not listed)", "region": "North America page (US & Canada); other regions via separate page", "exams": ["220-1201","220-1202"], "checked": "2026-10-17"},
+    {"seller": "SuperVoucher", "url": "https://www.supervoucher.com/comptia/comptia_a_plus_exam_voucher.asp", "price_usd": 199.95, "type": "Pearson VUE voucher, early expiry", "expiry": "Expires 2026-12-31", "retake": "No", "region": "North America (US & Canada)", "exams": ["220-1201","220-1202"], "checked": "2026-10-17"},
+    {"seller": "SuperVoucher", "url": "https://www.supervoucher.com/comptia/comptia_a_plus_exam_voucher.asp", "price_usd": 209.95, "type": "Pearson VUE voucher, early expiry", "expiry": "Expires 2027-01-31", "retake": "No", "region": "North America (US & Canada)", "exams": ["220-1201","220-1202"], "checked": "2026-10-17"},
+    {"seller": "SuperVoucher", "url": "https://www.supervoucher.com/comptia/comptia_a_plus_exam_voucher.asp", "price_usd": 219.95, "type": "Pearson VUE voucher, standard", "expiry": "Expires 2027-04", "retake": "No", "region": "North America (US & Canada)", "exams": ["220-1201","220-1202"], "checked": "2026-10-17"},
+    {"seller": "Professor Messer", "url": "https://www.professormesser.com/discounted-comptia-a-plus-voucher/", "price_usd": 245.00, "type": "Standard voucher + Exam Hacks eBook", "expiry": "About 12 months from purchase", "retake": "Optional, +$76", "region": "US, Canada, US territories only", "exams": ["220-1201","220-1202"], "checked": "2026-10-17"},
+    {"seller": "Dion Training", "url": "https://www.diontraining.com/collections/vouchers", "price_usd": 246.60, "type": "Standard voucher (\"from\" price)", "expiry": "9 months from purchase", "retake": "Optional Take2 add-on (price not listed)", "region": "not listed", "exams": ["220-1201","220-1202"], "checked": "2026-10-17"},
+    {"seller": "GetCertified4Less", "url": "https://getcertified4less.com/products/a-discount-test-voucher", "price_usd": 255.00, "type": "Standard voucher (Core 1 or Core 2)", "expiry": "Valid 11-12 months", "retake": "No", "region": "Worldwide except India (non-US/CA buyers need verified PayPal)", "exams": ["220-1201","220-1202"], "checked": "2026-10-17"}
+  ],
+  "za_offers": [
+    {"seller": "Jumping Bean", "url": "https://training.jumpingbean.info/shop/category/exam-vouchers-comptia-101", "price_zar": "R2,403.50", "note": "Per exam, Core 1 and Core 2 listed separately. Page data shows R2,090 base; R2,403.50 appears to include 15% VAT (our inference).", "checked": "2026-10-17"},
+    {"seller": "Supreme ICT Academy", "url": "https://supremeictacademy.co.za/product/a-exam-voucher/", "price_zar": "R3,188.90 excl. VAT", "note": "Sale price (was R4,415.00). Valid 12 months; emailed within 36 business hours.", "checked": "2026-10-17"}
+  ],
+  "unverified": [
+    {"seller": "Crucial Exams", "url": "https://gcp.crucialexams.com/store/product/comptia-a-voucher-(1201-1202)", "reason": "Page returned 403 to our checker on 2026-10-17; earlier search snippet showed $238 (US/Canada only) but not re-verified, so excluded."}
+  ]
+}

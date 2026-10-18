@@ -1,0 +1,4 @@
+shot-*.png
+*.log
+.env*
+__pycache__/
