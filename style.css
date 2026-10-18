@@ -7,5 +7,5 @@ h1{font-size:clamp(26px,5vw,40px);line-height:1.15;margin:.4em 0 .2em}.lead{font
 th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #e6ebf0;vertical-align:top}th{background:#14202b;color:#fff;font-weight:600;white-space:nowrap}
 .box{background:#fff;border-radius:12px;padding:18px 20px;box-shadow:0 1px 3px #0001;margin:20px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
 .pick{background:#e8f7ef;border-radius:12px;padding:14px 16px}.pick b{display:block;color:#0a8f5a;font-size:13px;text-transform:uppercase;letter-spacing:.03em}
-blockquote{margin:8px 0;padding:6px 12px;border-left:3px solid #0a8f5a;background:#f3f7f5}.muted{color:#5b6a78;font-size:14px}
+blockquote{margin:8px 0;padding:6px 12px;border-left:3px solid #0a8f5a;background:#f3f7f5}.btn{display:inline-block;background:#0a8f5a;color:#fff;font-weight:700;text-decoration:none;padding:12px 20px;border-radius:8px;margin:6px 0}.muted{color:#5b6a78;font-size:14px}
 footer{color:#5b6a78;font-size:14px;border-top:1px solid #dde3e9;margin-top:30px}@media(max-width:640px){nav a{margin:0 12px 0 0}th,td{padding:8px}}
